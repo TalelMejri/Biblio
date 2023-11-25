@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center ">
+     <form action="./index.php" method="POST" class="shadow p-5" enctype="multipart/form-data">
+        <h4>Add Livre</h4>
+         <?php 
+            if(array_key_exists("msg",$_GET)){
+          ?>
+            <div class="alert alert-danger">
+                 <?= $_GET['msg']; ?>
+            </div>
+          <?php } ?>
+         <div  class="mb-2">
+             <input type="text" placeholder="Nom" name="nom" class="form-control" >
+         </div>
+         <div class="mb-2">
+             <input type="text" placeholder="Description"  name="description" class="form-control">
+         </div>
+         <div class="mb-2">
+             <input type="file" name="photo"  class="form-control">
+         </div>
+         <button type="submit" name="submit"  class="btn btn-outline-success">Add livre</button>
+     </form>
+</div>

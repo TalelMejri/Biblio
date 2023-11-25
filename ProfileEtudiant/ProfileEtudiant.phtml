@@ -1,0 +1,40 @@
+
+<div class="text-center">
+    hello <?php echo $_SESSION['nom'] ?>
+</div>
+
+<h1 class="text-center mb-2">List Livre</h1>
+ <div class="justify-content-center">
+ <table class="table">
+     <thead>
+          <tr>
+             <td>#</td>
+             <td>Nom</td>
+             <td>Description</td>
+             <td>Photo</td>
+             <td>Operation</td>
+        </tr>
+     </thead>
+     <tbody>
+        <?php foreach($listLivre as $livre): ?>
+         <tr>
+            <td>
+                 <?php echo $livre['id'] ?>
+            </td>
+            <td>
+                 <?php echo $livre['nom'] ?>
+            </td>
+            <td>
+                 <?php echo $livre['description'] ?>
+            </td>
+            <td>
+                <img width="50px" src="../LivrePhoto/<?php echo $livre['photo'] ?>" >
+            </td>
+            <td>
+                <a href="#"><button class="btn btn-info">Emprunter</button></a>
+            </td>
+         </tr>
+         <?php endforeach;?>
+     </tbody>
+ </table>
+ </div>

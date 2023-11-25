@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-center">
+     <form action="./index.php" method="POST" class="shadow p-5" enctype="multipart/form-data">
+        <h4>Update Livre</h4>
+         <?php 
+            if(array_key_exists("msg",$_GET)){
+          ?>
+            <div class="alert alert-danger">
+                 <?= $_GET['msg']; ?>
+            </div>
+          <?php } ?>
+         <input type="hidden" name="id" value="<?=$livre['id'];?>">
+         <div  class="mb-2">
+             <input type="text" placeholder="Nom" name="nom" class="form-control" value="<?=$livre['nom'];?>">
+         </div>
+         <div class="mb-2">
+             <input type="text" placeholder="Description"  name="description" class="form-control" value="<?=$livre['description'];?>">
+         </div>
+         <div class="mb-2">
+             <img src="../LivrePhoto/<?=$livre['photo']?>" width="90px">
+             <input type="file" name="photo"  class="form-control">
+         </div>
+         <button type="submit" name="update"  class="btn btn-outline-warning">Update livre</button>
+     </form>
+</div>

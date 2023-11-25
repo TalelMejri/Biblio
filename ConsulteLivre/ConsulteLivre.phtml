@@ -1,0 +1,47 @@
+
+ <h1 class="text-center mb-2">List Livre</h1>
+ <a href="../AddLivre/index.php">
+      <button class="btn btn-primary">Add</button>
+ </a>
+         <?php 
+            if(array_key_exists("msg",$_GET)){
+          ?>
+            <div class="alert alert-success">
+                 <?= $_GET['msg']; ?>
+            </div>
+          <?php } ?>
+ <div class="justify-content-center">
+ <table class="table">
+     <thead>
+          <tr>
+             <td>#</td>
+             <td>Nom</td>
+             <td>Description</td>
+             <td>Photo</td>
+             <td>Operation</td>
+        </tr>
+     </thead>
+     <tbody>
+        <?php foreach($listLivre as $livre): ?>
+         <tr>
+            <td>
+                 <?php echo $livre['id'] ?>
+            </td>
+            <td>
+                 <?php echo $livre['nom'] ?>
+            </td>
+            <td>
+                 <?php echo $livre['description'] ?>
+            </td>
+            <td>
+                <img width="50px" src="../LivrePhoto/<?php echo $livre['photo'] ?>" >
+            </td>
+            <td>
+                <a href="../UpdateLivre/index.php?id=<?=$livre['id'];?>"><button class="btn btn-warning">Edit</button></a>
+                <a href="../deleteLivre.php?id=<?=$livre['id'];?>"><button class="btn btn-danger">Delete</button></a>
+            </td>
+         </tr>
+         <?php endforeach;?>
+     </tbody>
+ </table>
+ </div>
